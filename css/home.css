@@ -1,0 +1,109 @@
+/* Public homepage only: index.html. */
+
+/* Homepage introduction and feature panel */
+.hero {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  align-items: center;
+  gap: 72px;
+  padding: 80px 0;
+}
+
+
+/* Homepage actions and highlights */
+h1 em {
+  font-style: normal;
+  color: #66864c;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+
+/* Homepage introduction and feature panel */
+.hero-card {
+  background: #e6eddb;
+  border-radius: 20px;
+  padding: 38px;
+  box-shadow: 12px 14px 0 #eef1e6;
+}
+
+.hero-card h2 {
+  font-size: 37px;
+}
+
+
+/* Portal preview steps and badge */
+.steps {
+  list-style: none;
+  counter-reset: steps;
+  padding: 0;
+}
+
+.steps li {
+  counter-increment: steps;
+  position: relative;
+  padding: 18px 0 18px 46px;
+  border-bottom: 1px solid #cbd8c2;
+}
+
+.steps li:before {
+  content: counter(steps);
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  background: #d2dfbe;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.steps strong, .steps span {
+  display: block;
+}
+
+.steps span {
+  font-size: 14px;
+  color: #53645b;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 12px;
+  border: 1px solid #b6c8a8;
+  border-radius: 30px;
+  padding: 5px 12px;
+}
+
+
+/* Homepage actions and highlights */
+.number {
+  color: #66864c;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+/* Small screens: keep this area readable on phones. */
+@media (max-width:760px) {
+
+  /* Homepage introduction and feature panel */
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 42px 0;
+  }
+
+  .hero-card {
+    padding: 28px;
+  }
+
+}

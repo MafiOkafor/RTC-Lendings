@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Page title, browser settings and file connections. -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="RTC Lendings customer website and portal.">
+    <title>Create account | RTC Lendings</title>
+    <!-- Styles: shared basics first, then this portal. -->
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="./css/customer.css">
+    <!-- JavaScript for this page only. -->
+    <script type="module" src="./js/register.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <!-- Site header: logo and main navigation. -->
+    <header>
+      <a class="brand" href="../index.html">
+        <span class="mark">RTC</span>
+        Lendings
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="../index.html#how-it-works">How it works</a>
+        <a href="../customer/login.html">Customer login</a>
+      </nav>
+    </header>
+    <!-- Main content for this page. -->
+    <main id="main">
+      <!-- Portal introduction and account form. -->
+      <section class="auth-layout">
+        <div>
+          <p class="eyebrow">CUSTOMER PORTAL</p>
+          <h1>Start your journey.</h1>
+          <p class="lead">Create your RTC Lendings account.</p>
+          <a class="text-link" href="../index.html">← Back to home</a>
+        </div>
+        <div class="card">
+          <h2>Create an account</h2>
+          <p data-status role="status" aria-live="polite">Checking connection setup…</p>
+          <!-- Email and password form; handled by this page’s JavaScript. -->
+          <form data-auth="register" data-portal="customer">
+            <!-- Email address field. -->
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" required maxlength="254">
+            <!-- Password field. -->
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="new-password" minlength="12" required>
+            <p class="muted">Use at least 12 characters.</p>
+            <button type="submit" disabled>Create account</button>
+          </form>
+          <p>
+            Already registered?
+            <a href="login.html">Sign in</a>
+          </p>
+        </div>
+      </section>
+    </main>
+    <!-- Site footer: brand and staff portal link. -->
+    <footer>
+      <a class="brand" href="../index.html">RTC Lendings</a>
+      <span>Customer care starts with clarity.</span>
+      <a href="../admin/login.html">Staff portal</a>
+    </footer>
+  </body>
+</html>

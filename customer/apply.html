@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Page identity and styles. This portal's CSS loads after shared components. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="same-origin">
+  <title>Apply for a loan | RTC Lendings</title>
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/portal-components.css">
+  <link rel="stylesheet" href="./css/customer.css">
+  <script type="module" src="./js/apply.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <!-- Portal navigation and session actions. -->
+  <header>
+    <a class="brand" href="../index.html"><span class="mark">RTC</span> Lendings</a>
+    <nav aria-label="Portal navigation">
+      <a href="dashboard.html">My account</a>
+      <a href="profile.html">My profile</a>
+      <a href="apply.html">Apply</a>
+      <button type="button" class="small-button" data-signout hidden>Sign out</button>
+    </nav>
+  </header>
+  <main id="main" class="portal">
+    <p class="eyebrow">CUSTOMER PORTAL</p>
+    <h1>Apply for a loan</h1>
+    <!-- Errors and save results are announced to screen readers. -->
+    <p data-status class="status" role="status" aria-live="polite">Loading your account…</p>
+    <noscript>Please enable JavaScript to use this portal.</noscript>
+    <!-- Content stays hidden until the session and page data are verified. -->
+    <div data-content hidden>
+      <p>Complete <a href="profile.html">your profile</a> first. Submitting an application does not guarantee approval.</p>
+      <!-- Display the business's privacy notice before consent. -->
+      <details class="card" open><summary>How your information is used</summary><div class="preserve-lines" data-privacy></div></details>
+      <form class="card form-page" data-application>
+        <fieldset data-application-fields><legend>Application details</legend>
+        <label for="amount">Requested amount (R)</label>
+        <input id="amount" name="amount" type="number" min="0.01" max="999999999" step="0.01"  required>
+        <label for="months">Requested term in months</label>
+        <input id="months" name="months" type="number" min="1" max="60" step="1" required>
+        <label for="purpose">What is the loan for?</label>
+        <textarea id="purpose" name="purpose" rows="4" minlength="3" required></textarea>
+        <label class="check"><input name="consent" type="checkbox" required> I have read the privacy notice and consent to the assessment of this application.</label>
+        <button type="submit">Submit application</button>
+        </fieldset>
+      </form>
+    </div>
+  </main>
+  <footer><a href="../index.html">RTC Lendings</a><span>South Africa · Amounts in ZAR</span></footer>
+</body>
+</html>

@@ -1,0 +1,69 @@
+/* Admin pages only. Edit this file to change this portal independently. */
+
+/* Login and registration layout */
+.auth-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.auth-layout h1 {
+  font-size: 50px;
+}
+
+
+/* Form fields, buttons and status messages */
+form {
+  display: grid;
+  gap: 10px;
+}
+
+input {
+  width: 100%;
+  font: inherit;
+  padding: 12px;
+  border: 1px solid #95a99b;
+  border-radius: 6px;
+}
+
+label {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+form button {
+  margin-top: 14px;
+}
+
+
+/* Information page width */
+.narrow {
+  max-width: 760px;
+  margin: auto;
+  min-height: 65vh;
+}
+
+
+/* Form fields, buttons and status messages */
+[data-status] {
+  font-size: 14px;
+}
+
+
+/* Small screens: keep this area readable on phones. */
+@media (max-width:760px) {
+
+  /* Login and registration layout */
+  .auth-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 42px 0;
+  }
+
+  .auth-layout h1 {
+    font-size: 42px;
+  }
+
+}

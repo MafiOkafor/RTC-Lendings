@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Page identity and styles. This portal's CSS loads after shared components. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="same-origin">
+  <title>Interest settings | RTC Lendings</title>
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/portal-components.css">
+  <link rel="stylesheet" href="./css/admin.css">
+  <script type="module" src="./js/interest.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <!-- Portal navigation and session actions. -->
+  <header>
+    <a class="brand" href="../index.html"><span class="mark">RTC</span> Lendings</a>
+    <nav aria-label="Portal navigation">
+      <a href="dashboard.html">Applications</a>
+      <a href="clients.html">Clients</a>
+      <a href="business.html" data-owner hidden>Business</a>
+      <a href="interest.html" data-owner hidden>Interest</a>
+      <a href="employees.html" data-owner hidden>Employees</a>
+      <button type="button" class="small-button" data-signout hidden>Sign out</button>
+    </nav>
+  </header>
+  <main id="main" class="portal">
+    <p class="eyebrow">STAFF PORTAL</p>
+    <h1>Interest settings</h1>
+    <!-- Errors and save results are announced to screen readers. -->
+    <p data-status class="status" role="status" aria-live="polite">Loading your account…</p>
+    <noscript>Please enable JavaScript to use this portal.</noscript>
+    <!-- Content stays hidden until the session and page data are verified. -->
+    <div data-content hidden>
+      <!-- Current policy is preserved as a new version on every save. -->
+      <section class="card"><h2>Current defaults</h2><p data-current-policy>No interest policy has been configured yet.</p>
+        <p>Changes apply only to loans approved afterward. Existing agreements retain their agreed settings.</p></section>
+      <form class="card form-page" data-interest-settings>
+        <!-- Regular contractual interest uses a simple monthly flat rate. -->
+        <h2>Regular loan interest</h2>
+        <label for="regular_monthly_rate">Monthly interest rate (%)</label>
+        <input id="regular_monthly_rate" name="regular_monthly_rate" type="number" min="0" max="100" step="0.000001" required>
+        <p>Simple interest on original principal: principal × monthly rate ÷ 100 × number of months. Fees are disclosed separately in the offer.</p>
+        <!-- Enable and configure daily overdue interest for newly approved loans. -->
+        <h2>Overdue interest</h2>
+        <label class="check"><input type="checkbox" name="late_enabled"> Enable daily overdue interest for new loan agreements</label>
+        <fieldset data-late-fields disabled><legend>Daily calculation rules</legend>
+          <label for="late_rate">Overdue interest rate (%)</label>
+          <input id="late_rate" name="late_rate" type="number" min="0.000001" max="100" step="0.000001" required>
+          <label for="rate_period">Rate period</label>
+          <select id="rate_period" name="rate_period"><option value="daily">Per day</option><option value="monthly">Per month (divided by 30 daily)</option><option value="annual">Per year (divided by 365 daily)</option></select>
+          <label for="calculation_basis">Charge interest on</label>
+          <select id="calculation_basis" name="calculation_basis">
+            <option value="overdue_instalments">Unpaid instalments past the grace period</option>
+            <option value="overdue_principal">Principal portion of overdue instalments</option>
+            <option value="outstanding_principal">All unpaid principal, only while overdue</option>
+          </select>
+          <label for="interest_method">Calculation method</label>
+          <select id="interest_method" name="interest_method"><option value="simple">Simple — no interest on late interest</option><option value="compound">Compound — include unpaid prior late interest</option></select>
+          <label for="grace_days">Grace period per instalment (calendar days)</label>
+          <input id="grace_days" name="grace_days" type="number" min="0" max="365" step="1" value="0" required>
+          <p>Charges start after the grace period, without charging for grace days. Only completed days are included in the balance; today's estimate is shown separately.</p>
+          <!-- Both lifetime caps apply; the lower limit wins and never resets after payment. -->
+          <label for="cap_amount">Maximum total late interest per loan (R)</label>
+          <input id="cap_amount" name="cap_amount" type="number" min="0.01" max="999999999" step="0.01" required>
+          <label for="cap_percent">Maximum total late interest as a percentage of original principal (%)</label>
+          <input id="cap_percent" name="cap_percent" type="number" min="0.0001" max="100" step="0.0001" required>
+          <p>The lower cap applies over the loan's lifetime. Payments do not reset it. Principal portions are allocated proportionally across scheduled debt.</p>
+        </fieldset>
+        <p>Use rates and caps appropriate to your loan product and reviewed agreements. These business settings do not replace applicable South African credit limits.</p>
+        <button type="submit">Save interest settings</button>
+      </form>
+    </div>
+  </main>
+  <footer><a href="../index.html">RTC Lendings</a><span>South Africa · Amounts in ZAR</span></footer>
+</body>
+</html>

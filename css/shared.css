@@ -1,0 +1,237 @@
+/* Shared appearance for every page. Area-specific styles load after this file. */
+
+/* Base colours, spacing and text */
+:root {
+  font-family: Arial,Helvetica,sans-serif;
+  color: #15382f;
+  background: #f7f8f2;
+  font-synthesis: none;
+  line-height: 1.6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+
+
+/* Site layout and navigation */
+header, footer {
+  max-width: 1200px;
+  margin: auto;
+  padding: 26px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+header {
+  border-bottom: 1px solid #d9e2d7;
+}
+
+.brand {
+  font-size: 21px;
+  font-weight: 750;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.mark {
+  background: #173e32;
+  color: #e1edb7;
+  border-radius: 9px;
+  padding: 10px 8px;
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 32px;
+}
+
+section {
+  padding: 64px 0;
+}
+
+
+/* Base colours, spacing and text */
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(40px,5.1vw,68px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+  margin: 24px 0;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -.7px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+.lead {
+  font-size: 18px;
+  color: #53645b;
+  max-width: 540px;
+}
+
+
+/* Reusable buttons and links */
+.button, button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: #214e3d;
+  color: white;
+  border: 0;
+  border-radius: 7px;
+  padding: 15px 21px;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover, button:hover {
+  background: #326a50;
+}
+
+button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.text-link {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+/* Base colours, spacing and text */
+.muted {
+  font-size: 13px;
+  color: #637268;
+}
+
+
+/* Reusable cards and grids */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  margin: 28px 0;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #dce3d8;
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.card p {
+  color: #53645b;
+}
+
+
+/* Site layout and navigation */
+footer {
+  font-size: 13px;
+  color: #53645b;
+  border-top: 1px solid #d9e2d7;
+  margin-top: 40px;
+}
+
+footer .brand {
+  font-size: 17px;
+}
+
+
+/* Keyboard access and hidden content */
+[hidden] {
+  display: none!important;
+}
+
+:focus-visible {
+  outline: 3px solid #a36d17;
+  outline-offset: 4px;
+}
+
+.skip {
+  position: absolute;
+  top: -100px;
+  padding: 12px;
+  background: white;
+}
+
+.skip:focus {
+  top: 0;
+}
+
+
+/* Small screens: keep this area readable on phones. */
+@media (max-width:760px) {
+
+  /* Site layout and navigation */
+  header, footer {
+    padding: 22px;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    gap: 18px;
+  }
+
+  main {
+    padding: 0 22px;
+  }
+
+
+  /* Reusable cards and grids */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Site layout and navigation */
+  section {
+    padding: 36px 0;
+  }
+
+  footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+}

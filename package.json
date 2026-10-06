@@ -1,0 +1,12 @@
+{
+  "name": "rtc-lendings",
+  "version": "0.2.0",
+  "private": true,
+  "description": "RTC Lendings static website with Supabase lending workflow",
+  "scripts": {
+    "test": "node tests/run.cjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.8"
+  }
+}

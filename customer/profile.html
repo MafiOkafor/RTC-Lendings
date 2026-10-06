@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Page identity and styles. This portal's CSS loads after shared components. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="same-origin">
+  <title>Your profile | RTC Lendings</title>
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/portal-components.css">
+  <link rel="stylesheet" href="./css/customer.css">
+  <script type="module" src="./js/profile.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <!-- Portal navigation and session actions. -->
+  <header>
+    <a class="brand" href="../index.html"><span class="mark">RTC</span> Lendings</a>
+    <nav aria-label="Portal navigation">
+      <a href="dashboard.html">My account</a>
+      <a href="profile.html">My profile</a>
+      <a href="apply.html">Apply</a>
+      <button type="button" class="small-button" data-signout hidden>Sign out</button>
+    </nav>
+  </header>
+  <main id="main" class="portal">
+    <p class="eyebrow">CUSTOMER PORTAL</p>
+    <h1>Your profile</h1>
+    <!-- Errors and save results are announced to screen readers. -->
+    <p data-status class="status" role="status" aria-live="polite">Loading your account…</p>
+    <noscript>Please enable JavaScript to use this portal.</noscript>
+    <!-- Content stays hidden until the session and page data are verified. -->
+    <div data-content hidden>
+      <p>Keep your details accurate. All financial amounts below are monthly amounts in rand.</p>
+      <!-- Contact details and employment information. -->
+      <form class="card form-page" data-profile>
+        <h2>Contact information</h2>
+        <label for="full_name">Full legal name</label>
+        <input id="full_name" name="full_name" type="text" minlength="2" maxlength="150" autocomplete="name" required>
+        <label for="phone">Phone number</label>
+        <input id="phone" name="phone" type="tel" minlength="7" maxlength="30" autocomplete="tel" required>
+        <label for="address">Residential address</label>
+        <textarea id="address" name="address" rows="4" minlength="5" required></textarea>
+        <label for="employment">Employment</label>
+        <select id="employment" name="employment" required><option value="employed">Employed</option><option value="self_employed">Self-employed</option><option value="other">Other income source</option></select>
+        <!-- Monthly figures are assessed and verified separately by staff. -->
+        <h2>Monthly finances</h2>
+        <label for="monthly_income">Monthly income (R)</label>
+        <input id="monthly_income" name="monthly_income" type="number" min="0.01" max="999999999" step="0.01"  required>
+        <label for="living_expenses">Monthly living expenses (R)</label>
+        <input id="living_expenses" name="living_expenses" type="number" min="0" max="999999999" step="0.01"  required>
+        <label for="debt_payments">Existing monthly debt repayments (R)</label>
+        <input id="debt_payments" name="debt_payments" type="number" min="0" max="999999999" step="0.01"  required>
+        <button type="submit">Save profile</button>
+        <a href="apply.html">Continue to application</a>
+      </form>
+    </div>
+  </main>
+  <footer><a href="../index.html">RTC Lendings</a><span>South Africa · Amounts in ZAR</span></footer>
+</body>
+</html>

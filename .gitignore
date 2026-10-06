@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+js/config.local.js
+node_modules/
+dist/
+coverage/
+*.log
+.DS_Store
+Thumbs.db
+*.pem
+*.key

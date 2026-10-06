@@ -1,0 +1,201 @@
+/* Portal page layout and form spacing. */
+.portal {
+  padding-top: 30px;
+}
+
+.portal h1 {
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+.portal section {
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.portal .card {
+  margin-bottom: 20px;
+}
+
+.portal nav, nav {
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.form-page {
+  max-width: 760px;
+}
+
+.two-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.stack {
+  display: grid;
+  gap: 18px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.small-button {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.danger {
+  background: #8a3434;
+}
+
+
+/* Accessible form controls and consent checkboxes. */
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 0 12px;
+}
+
+textarea, select {
+  width: 100%;
+  font: inherit;
+  padding: 12px;
+  border: 1px solid #95a99b;
+  border-radius: 6px;
+  background: white;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.check {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-weight: normal;
+}
+
+.check input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.filter {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter input, .filter select {
+  flex: 1;
+  min-width: 180px;
+}
+
+.status:not(:empty), .notice {
+  background: #eaf0de;
+  padding: 14px;
+  border-radius: 7px;
+}
+
+
+/* Balances, history, tables and preserved agreement text. */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.metrics .card {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+}
+
+.metrics strong {
+  font-size: 25px;
+  overflow-wrap: anywhere;
+}
+
+.metrics span {
+  font-size: 13px;
+}
+
+.stage {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: #dae8c9;
+  text-transform: capitalize;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #dce3d8;
+  vertical-align: top;
+}
+
+th {
+  font-size: 13px;
+  color: #53645b;
+}
+
+.preserve-lines {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin-top: 20px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.document-card {
+  border: 1px solid #dce3d8;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+
+/* Phone layouts retain horizontally scrollable data tables. */
+@media (max-width: 760px) {
+  .metrics, .two-columns {
+  grid-template-columns: 1fr;
+}
+
+  .portal section, .portal .card {
+  padding: 18px;
+}
+
+  nav {
+  gap: 14px;
+}
+
+  .filter {
+  align-items: stretch;
+}
+
+}

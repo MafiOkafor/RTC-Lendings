@@ -1,0 +1,16 @@
+-- ONE-TIME OWNER SETUP. Run only in the authenticated Supabase SQL editor.
+-- First register and confirm YOUR owner email through the website.
+-- Replace OWNER_EMAIL_HERE below with that exact email, then execute this block.
+-- It fails unless exactly one confirmed account exists and no owner is assigned.
+do $$
+declare owner_id uuid; owner_email text := 'OWNER_EMAIL_HERE';
+begin
+  if exists(select 1 from public.staff_members where role = 'owner') then
+    raise exception 'An owner already exists. Review ownership manually.';
+  end if;
+  select id into owner_id from auth.users where lower(email) = lower(owner_email)
+    and email_confirmed_at is not null;
+  if owner_id is null then raise exception 'Register and confirm the owner email first.'; end if;
+  insert into public.staff_members(user_id,email,role,active,can_approve)
+    values(owner_id,owner_email,'owner',true,true);
+end $$;
